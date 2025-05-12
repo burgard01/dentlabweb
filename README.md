@@ -30,6 +30,14 @@ Dental lab management & invoice software
 
 ---
 
+## Used Flutter packages (pub.dev)
+
+Use command: 
+- $> flutter pub name of package (e.g. flutter pub iconsax)
+ 
+
+---
+
 ## Getting Started with Flutter (some informaion)
 
 This project is a starting point for a Flutter application.
@@ -42,3 +50,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+---
+
+## Flutter commands dfor DentLabWeb-Project
+
+- $> flutter run -d chrome (Run app in Chrome-Webbrowser)
