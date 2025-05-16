@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 7
+    },
+    "auditLog": "logs/.279b090bbc003bb3c9051dc261092ea5cff4c002-audit.json",
+    "files": [
+        {
+            "date": 1747229154610,
+            "name": "logs/dentlabweb-server-2025-05-14.log",
+            "hash": "341c85c62f81e357662058c2a1c0e49ecc05f4c2aa914f85c7b1bae7f3e6133b"
+        },
+        {
+            "date": 1747297178975,
+            "name": "logs/dentlabweb-server-2025-05-15.log",
+            "hash": "932d599599785131b87740ddac031fdf05f0807acf19a439b56d6f8f9bd04130"
+        },
+        {
+            "date": 1747385193428,
+            "name": "logs/dentlabweb-server-2025-05-16.log",
+            "hash": "0b2487e41e71160f9767704356fb023a452d0bd44acce852f7dbc63e4c690c6f"
+        }
+    ],
+    "hashType": "sha256"
+}

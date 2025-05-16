@@ -13,18 +13,15 @@
 /// Implemeentation of the UserModel class.
 ///
 class UserModel {
-  final String benutzername;
-  final String passwort;
+  String? benutzername;
+  String? passwort;
 
   // TODO - Add more fields as needed ...
 
   ///
-  /// Constructor for the UserModel class.
+  /// Class constructor.
   ///
-  /// [benutzername] is the username of the user.
-  /// [passwort] is the password of the user.
-  ///
-  UserModel({required this.benutzername, required this.passwort});
+  UserModel();
 
   ///
   /// Factory constructor to create a UserModel instance from a JSON object.
@@ -33,8 +30,8 @@ class UserModel {
   /// Returns a UserModel instance.
   ///
   UserModel.fromJson(Map<String, dynamic> json)
-    : benutzername = json['benutzername'] as String,
-      passwort = json['passwort'] as String;
+    : benutzername = json['Benutzername'] as String,
+      passwort = json['Passwort'] as String;
 
   ///
   /// Converts the UserModel instance to a JSON object.

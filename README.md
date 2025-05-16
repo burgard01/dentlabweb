@@ -30,14 +30,6 @@ Dental lab management & invoice software
 
 ---
 
-## Used Flutter packages (pub.dev)
-
-Use command: 
-- $> flutter pub name of package (e.g. flutter pub iconsax)
- 
-
----
-
 ## Getting Started with Flutter (some informaion)
 
 This project is a starting point for a Flutter application.
@@ -53,6 +45,31 @@ samples, guidance on mobile development, and a full API reference.
 
 ---
 
-## Flutter commands dfor DentLabWeb-Project
+## Important Flutter commands
 
-- $> flutter run -d chrome (Run app in Chrome-Webbrowser)
+- $> **flutter doctor** 
+     (This command provides the information about installed tooling required for Flutter development. It lets you know about your Flutter SDK, and whether it is set up correctly and compatible with the platform, IDE, and devices)
+- $> **flutter pub add [name of package]** (Add Flutter-Package)
+- $> **flutter pub remove [name of package]** (Remove Flutter-Package)
+- $> **flutter clean**
+     (This command deletes the build/ and . dart_tool/ directories in your Flutter project, which forces Flutter to rebuild everything the next time you run the app)
+- $> **flutter upgrade** (Update Flutter-SDK)     
+- $> **flutter run -d chrome** (Run app in Chrome-Webbrowser)
+- $> **flutter --version** (Show installed Flutter version)
+
+---
+
+## Database (MySQL-Server Database)
+
+- Used database: **MySQL**
+- Name of database: **webdent**
+- Username: **root**  
+- Password: **dentlabweb**
+
+---
+
+## DentLabWeb-Client Server-API
+
+- Server-API: **Node.js** REST-API 
+- URL of REST-API: **[http://](http://localhost:4003)**
+- Start the server: **node webserver.js** or **nodemon webserver.js**

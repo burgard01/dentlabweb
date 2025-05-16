@@ -32,10 +32,11 @@ class DentUIThemeConstants {
   static const Color dentColorLightGray = Color(0xFFCCCCCC);
   static const Color dentColorOrange = Color(0xFFf9AC5A);
   static const Color dentColorRed = Color(0xFFED5666);
+  static const Color dentColorLightGreen = Color(0xFF23C7C8);
   static const Color dentColorGreen = Color(0xFF1AB394);
   static const Color dentColorBlue = Color(0xFF1D84C6);
-  static const Color dentColorBlack = Color(0xFF263949);
-  
+  static const Color dentColorBlack = Color(0xFF263949);  
+
   ///-----------------------------------------------------
   /// Text colors
   ///-----------------------------------------------------
@@ -47,7 +48,7 @@ class DentUIThemeConstants {
   ///-----------------------------------------------------
   static const double fontSize10 = 10;
   static const double fontSize11 = 11;
-  static const double fontSize12 = 12;  
+  static const double fontSize12 = 12;
   static const double fontSize16 = 16;
   static const double fontSize20 = 20;
   static const double fontSize30 = 30;

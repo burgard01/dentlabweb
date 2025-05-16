@@ -129,10 +129,15 @@ CREATE TABLE tblBenutzer (
 -- ---------------------------------------------------------------------------------------------------------------------
 -- Table - tblKunden
 --
+-- Kundentyp:
+--     - Zahnaztpraxis
+--     - Fremdlabor
+--     - Patient
+--
 -- Kundenstatus:
 --     - Kunde
---     - hat Interesse
---     - kein Kunde
+--     - Interesse
+--     - erfasst
 --
 -- ---------------------------------------------------------------------------------------------------------------------
 CREATE TABLE tblKunden (
@@ -154,6 +159,7 @@ CREATE TABLE tblKunden (
     Mobil VARCHAR(255),
     Email VARCHAR(255) UNIQUE,
     Internet VARCHAR(255),
+    Bemerkung TEXT,
     CREATEDAT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     UPDATEDAT TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
      

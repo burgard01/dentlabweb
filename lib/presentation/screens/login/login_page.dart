@@ -9,10 +9,12 @@
 // Created: 12.05.2025
 //
 
+import 'package:dentlabweb/cubit/login/login_cubit.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dentlabweb/presentation/screens/login/login_form.dart';
 import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 ///
 /// Class: LoginPage
@@ -44,7 +46,10 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
-      body: LoginForm(), // Show DentLabWeb login form
+      body: BlocProvider<LoginCubit>(
+        create: (context) => LoginCubit(),
+        child: LoginForm(),
+      ),// Show DentLabWeb login form
     );
   } 
 }  

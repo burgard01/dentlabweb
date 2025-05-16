@@ -50,7 +50,7 @@ class DentButton extends StatelessWidget {
       height: 50,
       child: ElevatedButton(
         onPressed: () {
-          _sendBtnPressed();
+          _sendBtnPressed(context);
         },
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(_buttonBackgroundColor),
