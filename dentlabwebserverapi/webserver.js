@@ -10,12 +10,13 @@
 //
 
 import express from "express";
+import cors from "cors";
 import { logger } from "./helpers/loggerHelper.js";
 import { handleLogin } from "./handlers/loginHandler.js";
 
 const webserver = express();
 
-// Enable JSON parsing
+webserver.use(cors());
 webserver.use(express.json());
 
 //---------------------
