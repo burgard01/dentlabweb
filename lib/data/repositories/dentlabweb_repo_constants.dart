@@ -19,13 +19,19 @@ class DentRepoConstants {
   ///
   DentRepoConstants._();
 
-  ///--------------------------
-  /// DentLabWeb Server API URL
-  ///--------------------------
+  //--------------------------
+  // DentLabWeb Server API URL
+  //--------------------------
   static const String serverApiUrl = "http://localhost:4003";
 
-  ///-------------------
-  /// Login API PHP-File
-  ///-------------------
-  static const String loginRestApi = "/login";
+  //-------------------
+  // Login API PHP-File
+  //-------------------
+  static const String loginRestApiNode = "/login";
+  static const String loginRestApiPHP = "/loginHandler.php";
+
+  //--------
+  // Actions
+  //--------
+  static const String actionLogin = "login";
 }

@@ -22,7 +22,8 @@ import 'package:dentlabweb/data/repositories/dentlabweb_repo_constants.dart';
 /// Purpose: Implements the DentLabWeb LoginRepo class.
 ///
 class LoginRepo {   
-  final String _serverApiUrl = DentRepoConstants.serverApiUrl + DentRepoConstants.loginRestApi;
+  //final String _serverApiUrl = DentRepoConstants.serverApiUrl + DentRepoConstants.loginRestApiNode;
+  final String _serverApiUrl = DentRepoConstants.serverApiUrl + DentRepoConstants.loginRestApiPHP;
 
   ///
   /// Login handling function (auth is true or not).
@@ -44,6 +45,7 @@ class LoginRepo {
           'Content-Type': 'application/json; charset=UTF-8',
         },
         body: jsonEncode(<String, String>{
+          'action': DentRepoConstants.actionLogin,
           'username': username,
           'password': passwdHash,
         }),

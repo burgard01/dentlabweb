@@ -1,12 +1,12 @@
 //
-// File: login_page.dart
+// File: order_page.dart
 //
-// Purpose: DentLabWeb Login page.
+// Purpose: DentLabWeb Order (Aufträge) page.
 //
 // Author: Thomas Burgard (Dipl.-Ing.) BURGARDsoft Softwareentwicklung
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
-// Created: 12.05.2025
+// Created: 19.05.2025
 //
 
 import 'package:dentlabweb/cubit/login/login_cubit.dart';
@@ -18,27 +18,26 @@ import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 ///
-/// Class: LoginPage
+/// Class: OrderPage
 ///
-/// Purpose: DentLabWeb user login page implementation.
+/// Purpose: DentLabWeb order (Aufträge) page implementation.
 ///
-class LoginPage extends StatelessWidget {
-
+class OrderPage extends StatelessWidget {
   ///
   /// Class constructor.
-  /// 
-  const LoginPage({super.key});
+  ///
+  const OrderPage({super.key});
 
   ///
   /// Build method for showing the wigdets tree.
   ///
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: DentUIThemeConstants.dentColorGreen,
         title: Text(
-          DentUIStringConstants.loginPageAppbarText,
+          DentUIStringConstants.orderPageAppbarText,
           style: const TextStyle(
             color: DentUIThemeConstants.dentLightTextColor,
             fontFamily: DentUIThemeConstants.dentFontFamily,
@@ -47,10 +46,7 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
-      body: BlocProvider<LoginCubit>(
-        create: (context) => LoginCubit(),
-        child: LoginForm(),
-      ),// Show DentLabWeb login form
+      body: Placeholder(),
     );
-  } 
-}  
+  }
+}

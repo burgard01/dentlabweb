@@ -12,16 +12,16 @@
 ///
 /// Class: AppData
 ///
-/// Purpose: Singleton class. Holds all app wide user data.
+/// Purpose: Singleton class. Holds app wide user data.
 ///
 class AppData {
   String sessionID = "";
-  String username = "";
   String userID = "";
+  String username = "";  
   String firstName = "";
   String lastName = "";
-  String companyName = "";
-  String email = "";
+  String? email = "";
+  String role = "";
   
   static final AppData _instance = AppData._internal();
 

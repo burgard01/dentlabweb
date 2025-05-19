@@ -11,11 +11,12 @@
 
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
-import 'package:dentlabweb/cubit/cubit_string_constants.dart';
-import 'package:dentlabweb/data/repositories/login_repo.dart';
 import 'package:meta/meta.dart';
 
 import 'package:dentlabweb/data/models/user.dart';
+import 'package:dentlabweb/data/common/app_data.dart';
+import 'package:dentlabweb/cubit/cubit_string_constants.dart';
+import 'package:dentlabweb/data/repositories/login_repo.dart';
 
 part 'login_states.dart';
 
@@ -33,13 +34,20 @@ class LoginCubit extends Cubit<CubitLoginStates> {
   LoginCubit() : super(CubitLoginInitial());
 
   ///
+  /// Set obscure password field or not.
+  ///
+  setObscurePassword(bool obscure) {
+    emit(CubitObscurePassword(obscurePassword: !obscure));
+  }
+
+  ///
   /// Get user data with
   ///
   getUserData(String username, String password) async {
     emit(CubitLoginLoading(isLoading: true));
 
     // Wait 1 second, then call repository method.
-    // Delay is for showing 1 sec LinearProgressIndicator 
+    // Delay is for showing 1 sec LinearProgressIndicator
     Future.delayed(Duration(seconds: 1), () async {
       String response = await loginRepo.login(username, password);
 
@@ -50,15 +58,26 @@ class LoginCubit extends Cubit<CubitLoginStates> {
       } else {
         var message = json.decode(response);
 
-        if (message['status'] != "error") {
-          if (message["payload"].isNotEmpty) {
-            UserModel userModel = UserModel.fromJson(message["payload"][0]);
-            emit(CubitLoginLoaded(isLoading: false, userData: userModel));
+        if (message['status'] != 'error') {
+          if (message['payload'] != null) {
+            //-----------------------------
+            // Set app wide data in AppData
+            // object (Singleton pattern)
+            //-----------------------------
+            AppData appData = AppData();
+            appData.userID = message['payload']['ID_Benutzer'].toString();
+            appData.username = message['payload']['Benutzername'];
+            appData.firstName = message['payload']['Vorname'];
+            appData.lastName = message['payload']['Nachname'];
+            appData.email = message['payload']['Email'];
+            appData.role = message['payload']['Rolle'];
+
+            emit(CubitAuthenticated(isLoading: false));
           } else {
             emit(CubitLoginError(isLoading: false));
-          }          
+          }
         } else {
-          emit(CubitInternalServerError(isLoading: false)); 
+          emit(CubitInternalServerError(isLoading: false));
         }
       }
     });

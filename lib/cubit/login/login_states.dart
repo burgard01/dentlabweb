@@ -35,21 +35,6 @@ class CubitLoginLoading extends CubitLoginStates {
 }
 
 ///
-/// Class: CubitLoginLoaded
-///
-/// Purpose: CubitLoginLoaded class to hold user data.
-///
-class CubitLoginLoaded extends CubitLoginStates {
-  final UserModel userData;
-  final bool isLoading;
-
-  ///
-  /// Class constructor.
-  ///
-  CubitLoginLoaded({required this.isLoading, required this.userData});
-}
-
-///
 /// Class: CubitLoginError
 ///
 /// Purpose: CubitLoginError class.
@@ -89,4 +74,44 @@ class CubitCommunicationError extends CubitLoginStates {
   /// Class constructor.
   ///
   CubitCommunicationError({required this.isLoading});
+}
+
+///
+/// Class: CubitObscurePassword
+///
+/// Purpose: CubitObscurePassword class.
+///
+class CubitObscurePassword extends CubitLoginStates {
+  final bool obscurePassword;
+
+  ///
+  /// Class constructor.
+  ///
+  CubitObscurePassword({required this.obscurePassword});
+}
+
+///
+/// Class: CubitAuthenticated
+///
+/// Purpose: CubitAuthenticated class.
+///
+class CubitAuthenticated extends CubitLoginStates {
+  final bool isLoading;
+
+  ///
+  /// Class constructor.
+  ///
+  CubitAuthenticated({required this.isLoading});
+}
+
+///
+/// Class: CubitUnauthenticated
+///
+/// Purpose: CubitUnauthenticated class.
+///
+class CubitUnauthenticated extends CubitLoginStates {
+  ///
+  /// Class constructor.
+  ///
+  CubitUnauthenticated();
 }

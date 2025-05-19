@@ -33,6 +33,11 @@ webserver.listen(4003, () => {
 // In case of o.k. returns user data.
 //--------------------------------------------------
 webserver.post("/login", async (req, res, next) => {
-	const data = await handleLogin(req.body.username, req.body.password);	 
+	const data = await handleLogin(
+		req.body.action,
+		req.body.username,
+		req.body.password
+	);	 
+	
 	res.send(data);
 });

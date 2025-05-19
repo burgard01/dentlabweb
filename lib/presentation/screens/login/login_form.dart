@@ -12,6 +12,7 @@
 import 'package:dentlabweb/cubit/login/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
@@ -30,6 +31,7 @@ class LoginForm extends StatelessWidget {
   final TextEditingController _controllerUsername = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
   late bool _isLoading = false;
+  late bool _obscurePassword = true;
 
   ///
   /// Class constructor.
@@ -45,11 +47,11 @@ class LoginForm extends StatelessWidget {
 
     if (_formKey.currentState!.validate()) {
       BlocProvider.of<LoginCubit>(context).getUserData(username, password);
-    } 
+    }
   }
 
   ///
-  /// Show error snackbar on the top with 
+  /// Show error snackbar on the top with
   /// given context & message.
   ///
   ScaffoldFeatureController showTopErrorSnackbar(
@@ -99,10 +101,21 @@ class LoginForm extends StatelessWidget {
       listener: (context, state) {
         if (state is CubitLoginLoading) {
           _isLoading = state.isLoading;
-        } else if (state is CubitLoginLoaded) {
+        } else if (state is CubitObscurePassword) {
+          _obscurePassword = state.obscurePassword;
+        } else if (state is CubitAuthenticated) {
           _isLoading = state.isLoading;
+          _controllerUsername.text = "";
+          _controllerPassword.text = "";
+          //----------------------------------------
+          // Navigate to order (Aufträge) start page
+          //----------------------------------------
+          GoRouter.of(context).go('/order');
         } else if (state is CubitLoginError) {
-          showTopErrorSnackbar(context, DentUIStringConstants.loginPageErrorText);
+          showTopErrorSnackbar(
+            context,
+            DentUIStringConstants.loginPageErrorText,
+          );
           _isLoading = state.isLoading;
         } else if (state is CubitInternalServerError) {
           showTopErrorSnackbar(
@@ -208,7 +221,7 @@ class LoginForm extends StatelessWidget {
                 ),
                 child: TextFormField(
                   maxLength: 50,
-                  obscureText: true,
+                  obscureText: _obscurePassword,
                   autofocus: false,
                   controller: _controllerPassword,
                   style: const TextStyle(
@@ -232,12 +245,23 @@ class LoginForm extends StatelessWidget {
                       ),
                     ),
                     suffixIcon: IconButton(
-                      icon: Icon(
-                        MdiIcons.eyeOff,
-                        color: DentUIThemeConstants.dentColorLightGray,
-                        size: 25,
-                      ),
-                      onPressed: () {},
+                      icon:
+                          _obscurePassword
+                              ? Icon(
+                                MdiIcons.eye,
+                                color: DentUIThemeConstants.dentColorLightGray,
+                                size: 25,
+                              )
+                              : Icon(
+                                MdiIcons.eyeOff,
+                                color: DentUIThemeConstants.dentColorLightGray,
+                                size: 25,
+                              ),
+                      onPressed: () {
+                        BlocProvider.of<LoginCubit>(
+                          context,
+                        ).setObscurePassword(_obscurePassword);
+                      },
                     ),
                     border: const OutlineInputBorder(),
                     labelText: DentUIStringConstants.loginPagePasswordLabelText,

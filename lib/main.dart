@@ -10,9 +10,13 @@
 //
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
+import 'package:dentlabweb/presentation/screens/home-page.dart';
 import 'package:dentlabweb/presentation/screens/login/login_page.dart';
+import 'package:dentlabweb/presentation/screens/order/order_page.dart';
+import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
+import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
 
 ///
 /// DentLabWeb entry point.
@@ -20,6 +24,28 @@ import 'package:dentlabweb/presentation/screens/login/login_page.dart';
 void main() {
   runApp(const DentLabWebApp());
 }
+
+//-------------------------------
+// DentLabWeb route configuration
+//-------------------------------
+final GoRouter _router = GoRouter(
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return const LoginPage();
+      },
+      routes: <RouteBase>[        
+        GoRoute(
+          path: '/order',
+          builder: (BuildContext context, GoRouterState state) {
+            return const OrderPage();
+          },
+        ),
+      ],
+    ),
+  ],
+);
 
 ///
 /// Class: LoginPage
@@ -34,14 +60,14 @@ class DentLabWebApp extends StatelessWidget {
   ///
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp.router(
+      title: DentUIStringConstants.appTitleText,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: DentUIThemeConstants.dentColorGreen,
         ),
       ),
-      home: const LoginPage(), // Show DentLabWeb login page
+      routerConfig: _router,
     );
   }
 }
