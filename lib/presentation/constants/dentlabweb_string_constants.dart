@@ -24,6 +24,17 @@ class DentUIStringConstants {
   //----------
   static const String appTitleText = "DentLabWeb Dentallabor Management Software";
 
+  //--------------------------------------------
+  // App navigation drawer titles text constants
+  //--------------------------------------------
+  static const String navDrawerOrderTitleText = "Aufträge";
+  static const String navDrawerJumboTitleText = "Jumbos";
+  static const String navDrawerPositionsTitleText = "Abrechnungspositionen";
+  static const String navDrawerInvoiceTitleText = "Rechnungen";
+  static const String navDrawerMonthlyInvoicesTitleText = "Monatsaufstellungen";
+  static const String navDrawerStatisticsTitleText = "Statistiken";
+  static const String navDrawerLogoutTitleText = "Abmelden";
+
   //-----------------------------------
   // Home (Start) page string constants
   //-----------------------------------
@@ -38,21 +49,22 @@ class DentUIStringConstants {
   static const String loginPageUsernameLabelText = "Benutzername *";
   static const String loginPagePasswordLabelText = "Passwort *";
   static const String loginPageButtonText = "Anmelden";
-  static const String loginPageCopyrightText =
-      "© 2025 Thomas Burgard Softwareentwicklung";
+  static const String loginPageCopyrightText = "© 2025 Thomas Burgard Softwareentwicklung";
 
   // Login page error text
-  static const String loginPageValidationUsernameErrorText =
-      "Bitte Benutzername eingegeben!";
-  static const String loginPageValidationPasswordErrorText =
-      "Bitte Passwort eingegeben!";
-  static const String loginPageErrorText =
-      "Falsche Anmeldedaten! Bitte versuchen Sie es erneut.";
+  static const String loginPageValidationUsernameErrorText = "Bitte Benutzername eingegeben!";
+  static const String loginPageValidationPasswordErrorText = "Bitte Passwort eingegeben!";
+  static const String loginPageErrorText = "Falsche Anmeldedaten! Bitte versuchen Sie es erneut.";
 
   //---------------------------------------
   // Order (Aufträge) page string constants
   //---------------------------------------
   static const String orderPageAppbarText = "Aufträge";
+
+  //----------------------------
+  // Jumbo page string constants
+  //----------------------------
+  static const String jumboPageAppbarText = "Jumbos";
 
 
   //----------------------

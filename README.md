@@ -54,7 +54,7 @@ samples, guidance on mobile development, and a full API reference.
 - $> **flutter clean**
      (This command deletes the build/ and . dart_tool/ directories in your Flutter project, which forces Flutter to rebuild everything the next time you run the app)
 - $> **flutter upgrade** (Update Flutter-SDK)     
-- $> **flutter run -d chrome** (Run app in Chrome-Webbrowser)
+- $> **flutter run -d chrome --web-browser-flag "--disable-web-security"** (Run app in Chrome-Webbrowser without CORS-Error)
 - $> **flutter --version** (Show installed Flutter version)
 
 ---

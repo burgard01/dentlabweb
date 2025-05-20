@@ -35,14 +35,21 @@ class LoginCubit extends Cubit<CubitLoginStates> {
   ///
   /// Set obscure password field or not.
   ///
-  setObscurePassword(bool obscure) {
+  void setObscurePassword(bool obscure) {
     emit(CubitObscurePassword(obscurePassword: !obscure));
+  }
+
+  ///
+  /// Logout from protected app pages.
+  ///
+  void logout() {
+    emit(CubitUnauthenticated());
   }
 
   ///
   /// Get user data with
   ///
-  getUserData(String username, String password) async {
+  void getUserData(String username, String password) async {
     emit(CubitLoginLoading(isLoading: true));
 
     // Wait 1 second, then call repository method.

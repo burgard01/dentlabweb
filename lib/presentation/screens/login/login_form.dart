@@ -9,12 +9,13 @@
 // Created: 12.05.2025
 //
 
-import 'package:dentlabweb/cubit/login/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import 'package:dentlabweb/cubit/login/login_cubit.dart';
+import 'package:dentlabweb/router/app_router.dart';
 import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
 import 'package:dentlabweb/presentation/common_widgets/button_widget.dart';
 import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
@@ -107,10 +108,11 @@ class LoginForm extends StatelessWidget {
           _isLoading = state.isLoading;
           _controllerUsername.text = "";
           _controllerPassword.text = "";
+          
           //----------------------------------------
           // Navigate to order (Aufträge) start page
           //----------------------------------------
-          GoRouter.of(context).go('/order');
+          GoRouter.of(context).go(AppRouter.orderPath);
         } else if (state is CubitLoginError) {
           showTopErrorSnackbar(
             context,

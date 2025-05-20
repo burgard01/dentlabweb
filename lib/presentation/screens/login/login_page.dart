@@ -23,17 +23,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// Purpose: DentLabWeb user login page implementation.
 ///
 class LoginPage extends StatelessWidget {
-
   ///
   /// Class constructor.
-  /// 
+  ///
   const LoginPage({super.key});
 
   ///
   /// Build method for showing the wigdets tree.
   ///
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: DentUIThemeConstants.dentColorGreen,
@@ -47,10 +46,7 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
-      body: BlocProvider<LoginCubit>(
-        create: (context) => LoginCubit(),
-        child: LoginForm(),
-      ),// Show DentLabWeb login form
+      body: LoginForm(),
     );
-  } 
-}  
+  }
+}

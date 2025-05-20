@@ -1,8 +1,7 @@
 //
-// File: order_page.dart
+// File: jumbo_page.dart
 //
-// Purpose: DentLabWeb Order (Aufträge) page. This page is 
-//          DentLabWeb start page after successfully login. 
+// Purpose: DentLabWeb Jumbo page.
 //
 // Author: Thomas Burgard (Dipl.-Ing.) BURGARDsoft Softwareentwicklung
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
@@ -17,15 +16,15 @@ import 'package:dentlabweb/presentation/common_widgets/app_navigation_drawer.dar
 import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
 
 ///
-/// Class: OrderPage
+/// Class: JumboPage
 ///
-/// Purpose: DentLabWeb order (Aufträge) page implementation.
+/// Purpose: DentLabWeb jumbo page implementation.
 ///
-class OrderPage extends StatelessWidget {
+class JumboPage extends StatelessWidget {
   ///
   /// Class constructor.
   ///
-  const OrderPage({super.key});
+  const JumboPage({super.key});
 
   ///
   /// Build method for showing the wigdets tree.
@@ -38,7 +37,7 @@ class OrderPage extends StatelessWidget {
         foregroundColor: DentUIThemeConstants.dentLightTextColor,
         backgroundColor: DentUIThemeConstants.dentColorGreen,
         title: Text(
-          DentUIStringConstants.orderPageAppbarText,
+          DentUIStringConstants.jumboPageAppbarText,
           style: const TextStyle(
             color: DentUIThemeConstants.dentLightTextColor,
             fontFamily: DentUIThemeConstants.dentFontFamily,

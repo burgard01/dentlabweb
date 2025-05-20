@@ -1,8 +1,7 @@
 //
-// File: order_page.dart
+// File: billingitems_page.dart
 //
-// Purpose: DentLabWeb Order (Aufträge) page. This page is 
-//          DentLabWeb start page after successfully login. 
+// Purpose: DentLabWeb Billing items page.
 //
 // Author: Thomas Burgard (Dipl.-Ing.) BURGARDsoft Softwareentwicklung
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
@@ -17,15 +16,15 @@ import 'package:dentlabweb/presentation/common_widgets/app_navigation_drawer.dar
 import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
 
 ///
-/// Class: OrderPage
+/// Class: BillingItemsPage
 ///
-/// Purpose: DentLabWeb order (Aufträge) page implementation.
+/// Purpose: DentLabWeb billing items (Abrechnungspositionen) page implementation.
 ///
-class OrderPage extends StatelessWidget {
+class BillingItemsPage extends StatelessWidget {
   ///
   /// Class constructor.
   ///
-  const OrderPage({super.key});
+  const BillingItemsPage({super.key});
 
   ///
   /// Build method for showing the wigdets tree.
@@ -35,7 +34,6 @@ class OrderPage extends StatelessWidget {
     return Scaffold(
       drawer: AppNavigationDrawer(),
       appBar: AppBar(
-        foregroundColor: DentUIThemeConstants.dentLightTextColor,
         backgroundColor: DentUIThemeConstants.dentColorGreen,
         title: Text(
           DentUIStringConstants.orderPageAppbarText,
