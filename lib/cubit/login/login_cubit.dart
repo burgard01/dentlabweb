@@ -13,7 +13,6 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import 'package:dentlabweb/data/models/user.dart';
 import 'package:dentlabweb/data/common/app_data.dart';
 import 'package:dentlabweb/cubit/cubit_string_constants.dart';
 import 'package:dentlabweb/data/repositories/login_repo.dart';
