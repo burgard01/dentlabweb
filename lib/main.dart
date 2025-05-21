@@ -7,6 +7,7 @@
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 12.05.2025
+// Modified: 20.05.2025
 //
 
 import 'package:flutter/material.dart';
@@ -16,8 +17,8 @@ import 'package:go_router/go_router.dart';
 import 'package:dentlabweb/cubit/login/login_cubit.dart';
 import 'package:dentlabweb/router/app_router.dart';
 import 'package:dentlabweb/presentation/screens/login/login_page.dart';
-import 'package:dentlabweb/presentation/screens/order/order_page.dart';
-import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
+import 'package:dentlabweb/presentation/screens/order/order_list_page.dart';
+import 'package:dentlabweb/presentation/constants/dentlabweb_theme_constants.dart';
 import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
 
 ///
@@ -56,19 +57,13 @@ class DentLabWebApp extends StatelessWidget {
             GoRoute(
               path: AppRouter.orderPath,
               builder: (BuildContext context, GoRouterState state) {
-                return const OrderPage();
+                return const OrderListPage();
               },
             ),
-            /* GoRoute(
-              path: AppRouter.jumboPath,
-              builder: (BuildContext context, GoRouterState state) {
-                return const JumboPage();
-              },
-            ), */
           ],
           redirect: (BuildContext context, GoRouterState state) {
             final isAuthenticated = loginCubit.state is CubitAuthenticated;
-            
+
             if (!isAuthenticated) {
               return AppRouter.loginPath;
             }

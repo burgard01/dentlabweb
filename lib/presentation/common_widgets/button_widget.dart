@@ -7,12 +7,13 @@
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 12.05.2025
+// Modified: 12.05.2025
 //
 
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
+import 'package:dentlabweb/presentation/constants/dentlabweb_theme_constants.dart';
 
 ///
 /// Class: DentButton

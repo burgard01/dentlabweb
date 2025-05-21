@@ -13,7 +13,7 @@ import 'package:dentlabweb/presentation/common_widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
+import 'package:dentlabweb/presentation/constants/dentlabweb_theme_constants.dart';
 import 'package:dentlabweb/presentation/screens/login/login_page.dart';
 import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
 

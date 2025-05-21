@@ -1,30 +1,36 @@
 //
-// File: jumbo_page.dart
+// File: jumbo_list_page.dart
 //
-// Purpose: DentLabWeb Jumbo page.
+// Purpose: DentLabWeb Jumbo list page.
 //
 // Author: Thomas Burgard (Dipl.-Ing.) BURGARDsoft Softwareentwicklung
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 19.05.2025
+// Modified: 21.05.2025
 //
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
+import 'package:dentlabweb/cubit/jumbo/jumbo_cubit.dart';
+import 'package:dentlabweb/presentation/screens/jumbo/jumbo_list_form.dart';
+import 'package:dentlabweb/presentation/constants/dentlabweb_theme_constants.dart';
 import 'package:dentlabweb/presentation/common_widgets/app_navigation_drawer.dart';
 import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
 
 ///
 /// Class: JumboPage
 ///
-/// Purpose: DentLabWeb jumbo page implementation.
+/// Purpose: DentLabWeb jumbo list page implementation.
 ///
-class JumboPage extends StatelessWidget {
+class JumboListPage extends StatelessWidget {
+  final JumboCubit jumboCubit = JumboCubit();
+
   ///
   /// Class constructor.
   ///
-  const JumboPage({super.key});
+  JumboListPage({super.key});
 
   ///
   /// Build method for showing the wigdets tree.
@@ -46,7 +52,10 @@ class JumboPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Placeholder(),
+      body: BlocProvider<JumboCubit>(
+        create: (context) => jumboCubit,
+        child: JumboListForm(),
+      ),
     );
   }
 }

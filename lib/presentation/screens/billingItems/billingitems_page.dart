@@ -7,11 +7,12 @@
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 19.05.2025
+// Modified: 19.05.2025
 //
 
 import 'package:flutter/material.dart';
 
-import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
+import 'package:dentlabweb/presentation/constants/dentlabweb_theme_constants.dart';
 import 'package:dentlabweb/presentation/common_widgets/app_navigation_drawer.dart';
 import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
 

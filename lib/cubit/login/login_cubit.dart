@@ -7,6 +7,7 @@
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 14.05.2025
+// Modified: 14.05.2025
 //
 
 import 'dart:convert';
@@ -14,7 +15,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 import 'package:dentlabweb/data/common/app_data.dart';
-import 'package:dentlabweb/cubit/cubit_string_constants.dart';
+import 'package:dentlabweb/cubit/constants/cubit_string_constants.dart';
 import 'package:dentlabweb/data/repositories/login_repo.dart';
 
 part 'login_states.dart';

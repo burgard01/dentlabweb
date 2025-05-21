@@ -7,16 +7,17 @@
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 20.05.2025
+// Modified: 20.05.2025
 //
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:dentlabweb/presentation/dentlabweb_theme_constants.dart';
+import 'package:dentlabweb/presentation/constants/dentlabweb_theme_constants.dart';
 import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
-import 'package:dentlabweb/presentation/screens/order/order_page.dart';
-import 'package:dentlabweb/presentation/screens/jumbo/jumbo_page.dart';
+import 'package:dentlabweb/presentation/screens/order/order_list_page.dart';
+import 'package:dentlabweb/presentation/screens/jumbo/jumbo_list_page.dart';
 import 'package:dentlabweb/cubit/login/login_cubit.dart';
 import 'package:dentlabweb/router/app_router.dart';
 
@@ -27,7 +28,7 @@ import 'package:dentlabweb/router/app_router.dart';
 /// wide navigation drawer widget.
 ///
 class AppNavigationDrawer extends StatelessWidget {
-  final padding = EdgeInsets.symmetric(horizontal: 10);
+  final padding = EdgeInsets.symmetric(horizontal: 1);
 
   ///
   /// Class constructor.
@@ -51,7 +52,7 @@ class AppNavigationDrawer extends StatelessWidget {
                   color: Colors.white,
                   image: DecorationImage(
                     image: AssetImage('assets/images/burgardental_logo_300.png'),
-                    scale: 2.5,
+                    scale: 2.0,
                   ),
                 ),
                 margin: EdgeInsets.zero,
@@ -147,12 +148,12 @@ class AppNavigationDrawer extends StatelessWidget {
       case 0: // Order (Aufträge) page
         Navigator.of(
           context,
-        ).push(MaterialPageRoute(builder: (context) => OrderPage()));
+        ).push(MaterialPageRoute(builder: (context) => OrderListPage()));
         break;
       case 1: // Jumbo page
         Navigator.of(
           context,
-        ).push(MaterialPageRoute(builder: (context) => JumboPage()));
+        ).push(MaterialPageRoute(builder: (context) => JumboListPage()));
         break;
       case 6: // Logout & route to login page
         BlocProvider.of<LoginCubit>(context).logout();

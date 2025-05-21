@@ -1,12 +1,13 @@
 //
 //  File: login_states.dart
 //
-// Purpose: DentLabWeb login Cubit login states repository.
+// Purpose: DentLabWeb login Cubit states.
 //
 // Author: Thomas Burgard (Dipl.-Ing.) BURGARDsoft Softwareentwicklung
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 14.05.2025
+// Modified: 14.05.2025
 //
 
 part of 'login_cubit.dart';
