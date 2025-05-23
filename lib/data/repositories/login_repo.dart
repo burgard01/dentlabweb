@@ -22,7 +22,7 @@ import 'package:dentlabweb/data/repositories/dentlabweb_repo_constants.dart';
 ///
 /// Purpose: Implements the DentLabWeb LoginRepo class.
 ///
-class LoginRepo {   
+class LoginRepo {
   //final String _serverApiUrl = DentRepoConstants.serverApiUrl + DentRepoConstants.loginRestApiNode;
   final String _serverApiUrl = DentRepoConstants.serverApiUrl + DentRepoConstants.loginRestApiPHP;
 
@@ -30,14 +30,16 @@ class LoginRepo {
   /// Login handling function (auth is true or not).
   /// Get user data with given username and password.
   ///
-  /// Returns the body string
+  /// Returns the response body string
   ///
-  Future<String> login(String username, String password) async {
+  Future<String> login({
+    required String username,
+    required String password,
+  }) async {
     //-------------------------------
     // Hash password to SHA256 digest
     //-------------------------------
-    var bytes1 = utf8.encode(password);
-    var passwdHash = sha256.convert(bytes1).toString();
+    var passwdHash = sha256.convert(utf8.encode(password)).toString();
 
     try {
       final response = await http.post(

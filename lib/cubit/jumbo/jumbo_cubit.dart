@@ -23,11 +23,65 @@ part 'jumbo_states.dart';
 ///
 /// Purpose: Implements the JumboCubit class.
 ///
-class JumboCubit extends Cubit<CubitJumboStates> {
-  final JumboRepo loginRepo = JumboRepo();
+class JumboCubit extends Cubit<CubitJumboState> {
+  final JumboRepo jumboRepo = JumboRepo();
 
   ///
   /// Class constructor.
   ///
   JumboCubit() : super(CubitJumbonInitial());
+
+  ///
+  /// Get jumbos from database table "tblJumbos".
+  ///
+  void getJumbos() async {
+    emit(CubitJumboLoading(isLoading: true));
+  }
+
+  ///
+  /// Import jumbo: store jumbo data in database
+  /// table "tblJumbos" & "tblJumbopositionen".
+  ///
+  void importJumbo({
+    required String jumboFileContent,
+    required List<String> jumboFileAsList,
+  }) async {
+    emit(CubitJumboImport(jumboImportProccesing: true));
+
+    //-------------------------------------
+    // First parse the JSON file. Check the
+    // syntax and if it is valid JSON
+    //-------------------------------------
+    if (_parseJSONFile(jumboFileContent: jumboFileContent)) {
+      //---------------------------------------------------
+      // DentLabWeb Server-API communication via repository
+      //---------------------------------------------------
+      String response = await jumboRepo.importJumbo(
+        jumboFileContent: jumboFileContent,
+        jumboFileAsList: jumboFileAsList,
+      );
+
+      if (response == 'success') {
+        emit(CubitJumboImport(jumboImportProccesing: false));
+        emit(CubitJumboImportError(importSuccess: true));
+      } else {
+        emit(CubitJumboImport(jumboImportProccesing: false));
+        emit(CubitJumboImportError(importSuccess: false));
+      }      
+    } else {
+      emit(CubitJumboImportError(importSuccess: false));
+    }
+  }
+
+  ///
+  /// Parse JSON file: Check the syntax.
+  ///
+  bool _parseJSONFile({required String jumboFileContent}) {
+    try {
+      jsonDecode(jumboFileContent);
+      return true;
+    } on Exception catch (e) {
+      return false;
+    }
+  }
 }

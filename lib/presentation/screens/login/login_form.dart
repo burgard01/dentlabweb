@@ -18,7 +18,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:dentlabweb/cubit/login/login_cubit.dart';
 import 'package:dentlabweb/router/app_router.dart';
 import 'package:dentlabweb/presentation/constants/dentlabweb_theme_constants.dart';
-import 'package:dentlabweb/presentation/common_widgets/button_widget.dart';
+import 'package:dentlabweb/presentation/common_widgets/button_full_width.dart';
 import 'package:dentlabweb/presentation/constants/dentlabweb_string_constants.dart';
 
 ///
@@ -41,7 +41,7 @@ class LoginForm extends StatelessWidget {
   LoginForm({super.key});
 
   ///
-  /// Send login button pressed event to sign in bloc.
+  /// Button pressed event handler: Send login data to login bloc.
   ///
   void sendBtnPressedEvent(BuildContext context) {
     final username = _controllerUsername.text.trim();
@@ -56,7 +56,7 @@ class LoginForm extends StatelessWidget {
   /// Show error snackbar on the top with
   /// given context & message.
   ///
-  ScaffoldFeatureController showTopErrorSnackbar(
+  ScaffoldFeatureController showErrorSnackbar(
     BuildContext context,
     String message,
   ) {
@@ -99,7 +99,7 @@ class LoginForm extends StatelessWidget {
     // Get the screen width of device
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return BlocConsumer<LoginCubit, CubitLoginStates>(
+    return BlocConsumer<LoginCubit, CubitLoginState>(
       listener: (context, state) {
         if (state is CubitLoginLoading) {
           _isLoading = state.isLoading;
@@ -109,25 +109,25 @@ class LoginForm extends StatelessWidget {
           _isLoading = state.isLoading;
           _controllerUsername.text = "";
           _controllerPassword.text = "";
-          
+
           //----------------------------------------
           // Navigate to order (Aufträge) start page
           //----------------------------------------
           GoRouter.of(context).go(AppRouter.orderPath);
         } else if (state is CubitLoginError) {
-          showTopErrorSnackbar(
+          showErrorSnackbar(
             context,
             DentUIStringConstants.loginPageErrorText,
           );
           _isLoading = state.isLoading;
         } else if (state is CubitInternalServerError) {
-          showTopErrorSnackbar(
+          showErrorSnackbar(
             context,
             DentUIStringConstants.internalServerErrorText,
           );
           _isLoading = state.isLoading;
         } else if (state is CubitCommunicationError) {
-          showTopErrorSnackbar(context, DentUIStringConstants.commErrorText);
+          showErrorSnackbar(context, DentUIStringConstants.commErrorText);
           _isLoading = state.isLoading;
         }
       },
@@ -137,7 +137,7 @@ class LoginForm extends StatelessWidget {
           child: ListView(
             padding:
                 screenWidth < 1280
-                    ? const EdgeInsets.symmetric(horizontal: 40)
+                    ? const EdgeInsets.symmetric(horizontal: 60)
                     : const EdgeInsets.symmetric(horizontal: 450),
             children: [
               //----------------------
@@ -219,7 +219,6 @@ class LoginForm extends StatelessWidget {
                 padding: const EdgeInsets.only(
                   left: 10,
                   right: 10,
-                  top: 5,
                   bottom: 10,
                 ),
                 child: TextFormField(
@@ -286,8 +285,9 @@ class LoginForm extends StatelessWidget {
                       children: [
                         SizedBox(height: 10),
                         const LinearProgressIndicator(
-                          color: DentUIThemeConstants.dentColorGreen,
+                          color: DentUIThemeConstants.dentColorBlue,
                         ),
+                        const SizedBox(height: 10),
                       ],
                     ),
                   )
@@ -300,14 +300,15 @@ class LoginForm extends StatelessWidget {
                 padding: const EdgeInsets.only(
                   left: 10,
                   right: 10,
-                  top: 30,
+                  top: 10,
                   bottom: 30,
                 ),
                 child: Center(
-                  child: DentButton(
+                  child: DentButtonFull(
+                    Icon(MdiIcons.login, size: 20.0, color: Colors.white),
                     DentUIStringConstants.loginPageButtonText,
                     sendBtnPressedEvent,
-                    DentUIThemeConstants.dentColorGreen,
+                    DentUIThemeConstants.dentColorBlue,
                     DentUIThemeConstants.dentLightTextColor,
                   ),
                 ),

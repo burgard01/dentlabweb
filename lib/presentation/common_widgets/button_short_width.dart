@@ -1,5 +1,5 @@
 //
-// File: button_widget.dart
+// File: button_short_width.dart
 //
 // Purpose: DenbtLabWeb button widget.
 //
@@ -7,24 +7,25 @@
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 12.05.2025
-// Modified: 12.05.2025
+// Modified: 23.05.2025
 //
 
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'package:dentlabweb/presentation/constants/dentlabweb_theme_constants.dart';
 
 ///
-/// Class: DentButton
+/// Class: DentButtonShort
 ///
-/// Purpose: Implements the DentLabWeb button widget.
+/// Purpose: Implements the DentLabWeb button 
+/// widget with short width (text width).
 ///
-class DentButton extends StatelessWidget {
-  final Function _sendBtnPressed;
+class DentButtonShort extends StatelessWidget {
+  final Function _pressedBtnPressed;
   final String _buttonText;
   final Color _buttonBackgroundColor;
   final Color _buttonForgroundColor;
+  final Icon icon;
 
   ///
   /// Class constructor.
@@ -34,9 +35,10 @@ class DentButton extends StatelessWidget {
   /// @param _buttonBackgroundColor Button background color.
   /// @param _buttonForgroundColor Button foreground color.
   ///
-  const DentButton(
+  const DentButtonShort(
+    this.icon,
     this._buttonText,
-    this._sendBtnPressed,
+    this._pressedBtnPressed,
     this._buttonBackgroundColor,
     this._buttonForgroundColor, {
     super.key,
@@ -48,20 +50,26 @@ class DentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: 48,
       child: ElevatedButton(
         onPressed: () {
-          _sendBtnPressed(context);
+          _pressedBtnPressed(context);
         },
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(_buttonBackgroundColor),
           foregroundColor: WidgetStateProperty.all(_buttonForgroundColor),
+          shape: WidgetStateProperty.all(
+            RoundedRectangleBorder(
+              // Change your radius here
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+          ),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(MdiIcons.login, size: 20.0, color: _buttonForgroundColor),
+            icon,
             const SizedBox(width: 5),
             Text(
               _buttonText,

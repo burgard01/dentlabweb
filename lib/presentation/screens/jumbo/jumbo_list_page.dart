@@ -7,11 +7,10 @@
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 19.05.2025
-// Modified: 21.05.2025
+// Modified: 22.05.2025
 //
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:dentlabweb/cubit/jumbo/jumbo_cubit.dart';
 import 'package:dentlabweb/presentation/screens/jumbo/jumbo_list_form.dart';
@@ -52,10 +51,7 @@ class JumboListPage extends StatelessWidget {
           ),
         ),
       ),
-      body: BlocProvider<JumboCubit>(
-        create: (context) => jumboCubit,
-        child: JumboListForm(),
-      ),
+      body: JumboListForm(),
     );
   }
 }

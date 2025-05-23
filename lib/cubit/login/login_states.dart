@@ -12,21 +12,21 @@
 
 part of 'login_cubit.dart';
 
-abstract class CubitLoginStates {}
+abstract class CubitLoginState {}
 
 ///
 /// Class: CubitLoginInitial
 ///
 /// Purpose: CubitLoginInitial class.
 ///
-class CubitLoginInitial extends CubitLoginStates {}
+class CubitLoginInitial extends CubitLoginState {}
 
 ///
 /// Class: CubitLoginLoading
 ///
 /// Purpose: CubitLoginLoading class.
 ///
-class CubitLoginLoading extends CubitLoginStates {
+class CubitLoginLoading extends CubitLoginState {
   final bool isLoading;
 
   ///
@@ -36,53 +36,11 @@ class CubitLoginLoading extends CubitLoginStates {
 }
 
 ///
-/// Class: CubitLoginError
-///
-/// Purpose: CubitLoginError class.
-///
-class CubitLoginError extends CubitLoginStates {
-  final bool isLoading;
-
-  ///
-  /// Class constructor.
-  ///
-  CubitLoginError({required this.isLoading});
-}
-
-///
-/// Class: CubitInternalServerError
-///
-/// Purpose: CubitInternalServerError class.
-///
-class CubitInternalServerError extends CubitLoginStates {
-  final bool isLoading;
-
-  ///
-  /// Class constructor.
-  ///
-  CubitInternalServerError({required this.isLoading});
-}
-
-///
-/// Class: CubitCommunicationError
-///
-/// Purpose: CubitCommunicationError class.
-///
-class CubitCommunicationError extends CubitLoginStates {
-  final bool isLoading;
-
-  ///
-  /// Class constructor.
-  ///
-  CubitCommunicationError({required this.isLoading});
-}
-
-///
 /// Class: CubitObscurePassword
 ///
 /// Purpose: CubitObscurePassword class.
 ///
-class CubitObscurePassword extends CubitLoginStates {
+class CubitObscurePassword extends CubitLoginState {
   final bool obscurePassword;
 
   ///
@@ -96,7 +54,7 @@ class CubitObscurePassword extends CubitLoginStates {
 ///
 /// Purpose: CubitAuthenticated class.
 ///
-class CubitAuthenticated extends CubitLoginStates {
+class CubitAuthenticated extends CubitLoginState {
   final bool isLoading;
 
   ///
@@ -110,9 +68,53 @@ class CubitAuthenticated extends CubitLoginStates {
 ///
 /// Purpose: CubitUnauthenticated class.
 ///
-class CubitUnauthenticated extends CubitLoginStates {
+class CubitUnauthenticated extends CubitLoginState {
   ///
   /// Class constructor.
   ///
   CubitUnauthenticated();
+}
+
+///
+/// Class: CubitLoginError
+///
+/// Purpose: CubitLoginError class.
+///
+class CubitLoginError extends CubitLoginState {
+  final bool isLoading;
+
+  ///
+  /// Class constructor.
+  ///
+  CubitLoginError({required this.isLoading});
+}
+
+//--- Error states ------------------------------------------------------------
+
+///
+/// Class: CubitInternalServerError
+///
+/// Purpose: CubitInternalServerError class.
+///
+class CubitInternalServerError extends CubitLoginState {
+  final bool isLoading;
+
+  ///
+  /// Class constructor.
+  ///
+  CubitInternalServerError({required this.isLoading});
+}
+
+///
+/// Class: CubitCommunicationError
+///
+/// Purpose: CubitCommunicationError class.
+///
+class CubitCommunicationError extends CubitLoginState {
+  final bool isLoading;
+
+  ///
+  /// Class constructor.
+  ///
+  CubitCommunicationError({required this.isLoading});
 }

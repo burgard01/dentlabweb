@@ -51,7 +51,9 @@ class DentUIThemeConstants {
   static const double fontSize11 = 11;
   static const double fontSize12 = 12;
   static const double fontSize16 = 16;
+  static const double fontSize18 = 18;
   static const double fontSize20 = 20;
+  static const double fontSize22 = 22;
   static const double fontSize30 = 30;
   static const double fontSize40 = 40;
 

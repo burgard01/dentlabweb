@@ -1,0 +1,27 @@
+{
+	"Bezeichnung": "Krone",
+	"Bemerkung": "Krone",
+	"Positionen": 
+	[
+		{
+			"Liste": "BEL",
+			"Nummer": "0010",
+			"Bezeichnung": "Modell"
+		},
+		{
+			"Liste": "BEL",
+			"Nummer": "9330",
+			"Bezeichnung": "Lieferung"
+		},
+		{
+			"Liste": "BEL",
+			"Nummer": "0011",
+			"Bezeichnung": "Halterung"
+		},
+		{
+			"Liste": "BEL",
+			"Nummer": "0012",
+			"Bezeichnung": "Klammer"
+		}
+	]
+}

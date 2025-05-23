@@ -60,12 +60,17 @@ class DentUIStringConstants {
   //---------------------------------------
   // Order (Aufträge) page string constants
   //---------------------------------------
-  static const String orderPageAppbarText = "Aufträge";
+  static const String orderPageAppbarText = "Aufträge verwalten";
 
   //----------------------------
   // Jumbo page string constants
   //----------------------------
-  static const String jumboPageAppbarText = "Jumbos";
+  static const String jumboPageAppbarText = "Jumbos verwalten";
+  static const String jumboPageImportJumboButtonText = "Ausgewählter Jumbo importieren";
+  static const String jumboPageFilePickerButtonText = "Datei";
+  static const String jumboPageSelectedFilePlacehoderText = "ausgewählte Jumbo-Datei";
+  static const String jumboPageImportJumboSuccessText = "Jumbo wurde erfolgreich importiert!";
+  static const String jumboPageImportJumboErrorText = "Fehler beim Importieren des Jumbos. Bitte Jumbo-Datei auf korrekte Syntax überprüfen!";
 
 
   //----------------------

@@ -7,7 +7,8 @@
 // Copyright: (c) 2025 BURGARDsoft Softwareentwicklung - All rights reserved
 //
 // Created: 14.05.2025
-// Modified: 14.05.2025
+// Modified: 23.05.2025
+//   - Insert comments 
 //
 
 import 'dart:convert';
@@ -25,7 +26,7 @@ part 'login_states.dart';
 ///
 /// Purpose: Implements the LoginCubit class.
 ///
-class LoginCubit extends Cubit<CubitLoginStates> {
+class LoginCubit extends Cubit<CubitLoginState> {
   final LoginRepo loginRepo = LoginRepo();
 
   ///
@@ -56,7 +57,13 @@ class LoginCubit extends Cubit<CubitLoginStates> {
     // Wait 1 second, then call repository method.
     // Delay is for showing 1 sec LinearProgressIndicator
     Future.delayed(Duration(seconds: 1), () async {
-      String response = await loginRepo.login(username, password);
+      //---------------------------------------------------
+      // DentLabWeb Server-API communication via repository
+      //---------------------------------------------------
+      String response = await loginRepo.login(
+        username: username,
+        password: password,
+      );
 
       if (response == CubitStringConstants.commError) {
         emit(CubitCommunicationError(isLoading: false));
