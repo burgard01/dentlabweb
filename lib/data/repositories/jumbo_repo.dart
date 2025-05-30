@@ -10,10 +10,13 @@
 // Modified: 21.05.2025
 //
 
+
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
+import 'dart:convert';
 
 import 'package:dentlabweb/data/repositories/dentlabweb_repo_constants.dart';
+import 'package:dentlabweb/cubit/constants/cubit_string_constants.dart';
 
 ///
 /// Class: class JumboRepo {
@@ -36,9 +39,26 @@ class JumboRepo {
     required String jumboFileContent,
     required List<String> jumboFileAsList,
   }) async {
+    try {
+      final response = await http.post(
+        Uri.parse(DentRepoConstants.serverApiUrl + DentRepoConstants.loginRestApiPHP),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, String>{
+          'action': DentRepoConstants.actionJumboImport,
+          'jumbo': jumboFileContent,
+        }),
+      );
 
-
+      if (response.statusCode == 200) {
+        return response.body;
+      } else {
+        return CubitStringConstants.serverInternalError;
+      }
     
-    return 'success';
+    } on Exception {
+      return CubitStringConstants.commError;
+    }
   }
 }

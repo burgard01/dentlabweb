@@ -24,5 +24,5 @@ class CubitStringConstants {
   /// Error string constant
   ///----------------------
   static const String commError = "Kommunikationsfehler mit dem DenLabWeb-Server!";
-  static const String serverIntarnalError = "DenLabWeb-Server interner Fehler!";    
+  static const String serverInternalError = "DenLabWeb-Server interner Fehler!";    
 }

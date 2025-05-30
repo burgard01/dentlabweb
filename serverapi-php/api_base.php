@@ -28,3 +28,4 @@ $ini = parse_ini_file('./config.ini');
 // API action constants
 //---------------------
 define("ACTION_LOGIN", "login");
+define("ACTION_JUMBO_IMPORT", "jumboImport");

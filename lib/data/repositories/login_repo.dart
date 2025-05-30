@@ -57,7 +57,7 @@ class LoginRepo {
       if (response.statusCode == 200) {
         return response.body;
       } else {
-        return CubitStringConstants.serverIntarnalError;
+        return CubitStringConstants.serverInternalError;
       }
     } on Exception {
       return CubitStringConstants.commError;

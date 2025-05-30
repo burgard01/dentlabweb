@@ -67,7 +67,7 @@ class LoginCubit extends Cubit<CubitLoginState> {
 
       if (response == CubitStringConstants.commError) {
         emit(CubitCommunicationError(isLoading: false));
-      } else if (response == CubitStringConstants.serverIntarnalError) {
+      } else if (response == CubitStringConstants.serverInternalError) {
         emit(CubitInternalServerError(isLoading: false));
       } else {
         var message = json.decode(response);

@@ -35,4 +35,5 @@ class DentRepoConstants {
   // Actions
   //--------
   static const String actionLogin = "login";
+  static const String actionJumboImport = "jumboImport";
 }

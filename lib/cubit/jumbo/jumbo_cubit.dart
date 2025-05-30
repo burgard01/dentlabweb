@@ -15,6 +15,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 import 'package:dentlabweb/data/repositories/jumbo_repo.dart';
+import 'package:dentlabweb/cubit/constants/cubit_string_constants.dart';
 
 part 'jumbo_states.dart';
 
@@ -61,13 +62,19 @@ class JumboCubit extends Cubit<CubitJumboState> {
         jumboFileAsList: jumboFileAsList,
       );
 
+      if (response == CubitStringConstants.commError) {
+        emit(CubitCommunicationError(isLoading: false));
+      } else if (response == CubitStringConstants.serverInternalError) {
+        emit(CubitInternalServerError(isLoading: false));
+      } else {}
+
       if (response == 'success') {
         emit(CubitJumboImport(jumboImportProccesing: false));
         emit(CubitJumboImportError(importSuccess: true));
       } else {
         emit(CubitJumboImport(jumboImportProccesing: false));
         emit(CubitJumboImportError(importSuccess: false));
-      }      
+      }
     } else {
       emit(CubitJumboImportError(importSuccess: false));
     }
